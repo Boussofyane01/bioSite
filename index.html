@@ -3,70 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSD 340 Web Development with HTML and CSS</title>
+    <title>CSD 340 Web Development with HTML and CSS</title> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Assignment 11.2: JavaScript - Part 3</h1> 
-  <body>
-    
-    <div class="container">
-    <h1></h1>
-    <input type="text" id="entryBox"></input>
-    <button onClick="addEntry()">Add Entry</button>
-    <button onClick="clearEntries()">Clear List</button>
-    <button onClick="deleteEntry()">Delete Entry</button>
-    <button onClick="displayEntries()">Display List</button>
-<ul id="entryList"></ul>
+    <h1>Assignment 12.2: JavaScript - Part 4</h1> 
+<div class="main">
+<div class="container">
+<div class="title"> Top 10 favorite books</div> 
 
+
+    <button onclick="sortAscendingLearned(); sortAscending()">Top to Bottom</button> 
+    <button onclick="sortDescending(); sortDescendingLearned()">Bottom to Top</button>
+    <div id="output"></div>
+
+</div> 
+<div id="line"></div>
+
+<div class="container2">
+    <p>5 Things I've learned Since This Course Started</p>
+    <div id="list-output"></div>
+</div> 
 
 </div>
-    <script src="index.js" ></script>
+
     <script>
-        // add input entries to an empty array
-        var entries = [];
+        var books = ["To Kill A Mockingbird", "1984", "The Great Gatsby", "The Catcher in the Rye", "The Hobbit", "Fahrenheit 451 ", "Jane Eyre", "Brave New World", "Pride and Prejudice", "The Lord of the Rings"];
+        var learned = ["Basic structure of HTML documents","How to style elements using CSS", "The importance of semantic HTML", "How to link CSS to HTML", "Creating responsive layouts"]
 
-        // function to add each to the array
-        function addEntry(){
-            //grab input id - Match this to the input id in the html
-            var entry = document.getElementById("entryBox").value;
-            // assign values from the input to the array using push
-            entries.push(entry);
-
-            // clear the input box after adding the entry
-            document.getElementById("entryBox").value = ""; 
-alert("");
-        }
-
-        // function to clear 
-        function clearEntries(){
-            entries = [];
-        }
-        //function to delete
-        function deleteEntry(){
-            // pop function deletes the last element of the array
-            entries.pop();
-        }
-        // function to delete one by one even if its displayed
-        function deleteEntry(){
-            // pop function deletes the last element of the array
-            entries.pop();
-            displayEntries();
-        }
-        
-
-        // Function to display all entries in the array
-        function displayEntries() {
-            var entryList = document.getElementById("entryList");
+        // function sortAscending() {
+        //     var sortedBooks = books.slice().sort();
+        //     console.log(sortedBooks); // You can display the sortedBooks in the UI instead of console
+        // }
+        function sortAscendingLearned(){
+            var learnedList = learned.slice().sort();
+            console.log(learnedList); // You can display the sortedBooks in the UI instead of console
+            var listOutput = document.getElementById("list-output");
             // Clear the current list
-            entryList.innerHTML = "";
+          
             // Iterate over each entry in the array and display it in a list item
-            // Iterate over each entry in the array and display it in a list item
-            for (var i = 0; i < entries.length; i++) {
-                var entryElement = document.createElement("ul");
-                entryElement.textContent = `Item ${i + 1} = ${entries[i]}`;
-                entryList.appendChild(entryElement);
+            for (var i = 0; i < learned.length; i++) {
+                var learnedElement = document.createElement("ul");
+                learnedElement.textContent = ` ${i + 1} . ${learned[i]}`;
+                listOutput.appendChild(learnedElement);
             }
         }
-    </script>
-  </body>
+      
+
+        function sortDescendingLearned() {
+            var learnedList = learned.reverse();
+            console.log(learnedList); // You can display the sortedBooks in the UI instead of console
+            var learnedList = document.getElementById("list-output");
+            // Clear the current list
+            learnedList.innerHTML = "";
+            // Iterate over each entry in the array and display it in a list item
+            // Iterate over each entry in the array and display it in a list item
+            for (var i = 0; i < learned.length; i++) {
+                var learnedElement = document.createElement("ul");
+                learnedElement.textContent = ` ${i + 1} . ${learned[i]}`;
+                learnedList.appendChild(learnedElement);
+            }
+        } 
+
+        function sortDescending() {
+            var sortedBooks = books.reverse();
+            console.log(sortedBooks); // You can display the sortedBooks in the UI instead of console
+            var bookList = document.getElementById("output");
+            // Clear the current list
+            bookList.innerHTML = "";
+            // Iterate over each entry in the array and display it in a list item
+            // Iterate over each entry in the array and display it in a list item
+            for (var i = 0; i < books.length; i++) {
+                var bookElement = document.createElement("ul");
+                bookElement.textContent = ` ${i + 1} . ${books[i]}`;
+                bookList.appendChild(bookElement);
+            }
+        } 
+
+        function sortAscending() {
+            var sortedBooks = books.slice().sort();
+            console.log(sortedBooks); // You can display the sortedBooks in the UI instead of console
+            var bookList = document.getElementById("output");
+            // Clear the current list
+            bookList.innerHTML = "";
+            // Iterate over each entry in the array and display it in a list item
+            // Iterate over each entry in the array and display it in a list item
+            for (var i = 0; i < books.length; i++) {
+                var bookElement = document.createElement("ul");
+                bookElement.textContent = `${i + 1} . ${books[i]}`;
+                bookList.appendChild(bookElement);
+            }
+        }
+
+        // // Initialize an empty array to store entries
+        // var entries = ["dog","cat","chicken"];
+          
+          // Function to display all entries in the array
+        //   function displayEntries() {
+        //       var entryList = document.getElementById("entryList");
+        //       // Clear the current list
+        //       entryList.innerHTML = "";
+        //       // Iterate over each entry in the array and display it in a list item
+        //       for (var i = 0; i < entries.length; i++) {
+        //           var entryElement = document.createElement("li");
+        //           entryElement.textContent = `Item ${i + 1} = ${entries[i]}`;
+        //           entryList.appendChild(entryElement);
+        //       }
+        //   }
+          // sort the array in ascending order
+        //   function sortAscending() {
+        //       entries.sort();
+        //       displayEntries();
+        //   }
+
+
+            // Display the array
+            // function displayArray() {
+            //     displayEntries();
+            // }
+
+  // sort the array in descending order
+//   function sortDescending() {
+//                 entries.sort();
+//                 entries.reverse();
+//                 displayEntries();
+//             }
+
+
+    </script> 
+
+<div id="bottom-div">
+    <a href="../index.html">Back to Portal Page</a>
+</div>
+
+</body>
 </html>
