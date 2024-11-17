@@ -9,8 +9,8 @@
     <h1>CSD 340 Web Development with HTML and CSS</h1>
     <h2>Contributors</h2>
     <ul>
-        <li>Instructor: [Jonh Woods]</li>
-        <li>Student: [Boussofyane Ilboudo]</li>
+        <li>Instructor: Jonh Woods</li>
+        <li>Student: Boussofyane Ilboudo</li>
     </ul>
 </body>
 </html> 
